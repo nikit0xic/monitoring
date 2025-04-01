@@ -12,3 +12,5 @@ modules:
       preferred_ip_protocol: "ip4"
       headers: 
         User-Agent: "Blackbox Exporter/1.0"
+      tls_config:
+        insecure_skip_verify: true
