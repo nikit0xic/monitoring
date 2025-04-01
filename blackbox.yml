@@ -1,0 +1,16 @@
+modules:
+  http_2xx:
+    prober: http
+    timeout: 10s
+    http:
+      valid_http_versions: ["HTTP/1.1", "HTTP/2", "HTTP/2.0"]  # Добавьте HTTP/2.0
+      valid_status_codes: [200, 301, 302]  # Разрешил редиректы
+      method: GET
+      follow_redirects: true  # Следовать за редиректами
+      fail_if_ssl: false
+      fail_if_not_ssl: false
+      preferred_ip_protocol: "ip4"
+      headers:  # Добавил User-Agent
+        User-Agent: "Blackbox Exporter/1.0"
+      tls_config:
+        insecure_skip_verify: true  # Игнорировать ошибки SSL (если есть)
